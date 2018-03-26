@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from bosscog import BossCog
 
 def doBot(token: str, user_id: str, prefix: str):
     # create the bot
