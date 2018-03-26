@@ -1,0 +1,19 @@
+{
+    "name": "Matthias Gabrel",
+    "lang": "fr",
+    "timer": 600,
+    "mechanics": [
+        {
+            "name": "Corruption",
+            "initial_delay": 5,
+            "timer": 30,
+            "delay": 5,
+            "speech": [
+                {
+                    "name": "corrupt.mp3",
+                    "say": "corruption"
+                }
+            ]
+        }
+    ]
+}

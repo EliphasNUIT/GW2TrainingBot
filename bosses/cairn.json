@@ -1,0 +1,19 @@
+{
+    "name": "Cairn",
+    "lang": "fr",
+    "timer": 480,
+    "mechanics": [
+        {
+            "name": "Shared Agony",
+            "initial_delay": 0,
+            "timer": 20,
+            "delay": 5,
+            "speech": [
+                {
+                    "name": "share.mp3",
+                    "say": "Agonie partagée"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "name": "Dhuum",
+    "lang": "fr",
+    "timer": 600,
+    "mechanics": [
+        {
+            "name": "Descent",
+            "initial_delay": 5,
+            "timer": 120,
+            "delay": 5,
+            "unique": true,
+            "speech": [
+                {
+                    "name": "descent.mp3",
+                    "say": "Dhuum arrive"
+                }
+            ]
+        },
+        {
+            "name": "Orb",
+            "initial_delay": 0,
+            "timer": 30,
+            "delay": 5,
+            "speech": [
+                {
+                    "name": "fleche.mp3",
+                    "say": "orbe flèche"
+                },
+                {
+                    "name": "cercle.mp3",
+                    "say": "orbe cercle"
+                },
+                {
+                    "name": "coeur.mp3",
+                    "say": "orbe coeur"
+                },
+                {
+                    "name": "carre.mp3",
+                    "say": "orbe carré"
+                },
+                {
+                    "name": "croix.mp3",
+                    "say": "orbe croix"
+                },
+                {
+                    "name": "spiral.mp3",
+                    "say": "orbe spiral"
+                },
+                {
+                    "name": "triangle.mp3",
+                    "say": "orbe triangle"
+                }
+            ]
+        },
+        {
+            "name": "Orb player",
+            "initial_delay": 0,
+            "timer": 30,
+            "delay": 6,
+            "speech": [
+                {
+                    "name": "one.mp3",
+                    "say": "un"
+                },
+                {
+                    "name": "two.mp3",
+                    "say": "deux"
+                },
+                {
+                    "name": "three.mp3",
+                    "say": "trois"
+                }
+            ]
+        },
+        {
+            "name": "Greater Deathmark",
+            "initial_delay": 135,
+            "timer": 80,
+            "delay": 5,
+            "speech": [
+                {
+                    "name": "bmark.mp3",
+                    "say": "grande marque de mort"
+                }
+            ]
+        },
+        {
+            "name": "Lesser Deathmark",
+            "initial_delay": 95,
+            "timer": 80,
+            "delay": 5,
+            "speech": [
+                {
+                    "name": "mark.mp3",
+                    "say": "marque de mort"
+                }
+            ]
+        }
+    ]
+}
