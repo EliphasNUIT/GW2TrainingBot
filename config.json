@@ -1,5 +1,7 @@
 {
     "user_id": "",
     "token": "",
-    "prefix": "!"
+    "prefix": "$",
+    "arcDPSPath": "",
+    "autocleancache": true
 }
