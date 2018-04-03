@@ -1,18 +1,8 @@
 import discord
 from discord.ext import commands
 from bossfight import BossFight
-from automod import AutomaticMode
 import json
 import os.path
-
-#config file
-config = json.load(open('./config.json'))
-token = config['arcDPSPath']
-Automod = False
-if not (token is None or token == ""):
-    Automod = os.path.exists(token)
-    print('Automatic mode possible: ' + str(Automod))
-automatic_mode = AutomaticMode(token)
 
 sabetha: BossFight = BossFight('sabetha')
 slothasor: BossFight = BossFight('slothasor')
@@ -55,7 +45,7 @@ class BossCog:
             if(x.server == server):
                 return await x.disconnect()
 
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def sab(self, ctx):
         """Launches Sabetha boss fight"""
         vc = await self._summon(ctx)
@@ -66,7 +56,7 @@ class BossCog:
         await self.bot.say("Sabetha started")
         return
 
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def sloth(self, ctx):
         """Launches Slothasor boss fight"""
         vc = await self._summon(ctx)
@@ -77,7 +67,7 @@ class BossCog:
         await self.bot.say("Slothasor started")
         return
 
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def matt(self, ctx):
         """Launches Matthias boss fight"""
         vc = await self._summon(ctx)
@@ -88,7 +78,7 @@ class BossCog:
         await self.bot.say("Matthias started")
         return
 
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def cairn(self, ctx):
         """Launches Cairn boss fight"""
         vc = await self._summon(ctx)
@@ -99,7 +89,7 @@ class BossCog:
         await self.bot.say("Cairn started")
         return
 
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def dhuum(self, ctx):
         """Launches Dhuum boss fight"""
         vc = await self._summon(ctx)
@@ -110,23 +100,7 @@ class BossCog:
         await self.bot.say("Dhuum started")
         return
 
-    @commands.command(pass_context=True, hidden=not Automod)
-    async def automod(self, ctx):
-        """Enable automatic mod"""
-        vc = await self._summon(ctx)
-        if vc is None:
-            await self.bot.say("Can not start automatic mode")
-            return
-        automatic_mode.add(sabetha)
-        automatic_mode.add(dhuumB)
-        automatic_mode.add(slothasor)
-        automatic_mode.add(cairnB)
-        automatic_mode.add(matthias)
-        automatic_mode.start(self.bot, ctx.message.channel, vc)   
-        await self.bot.say("Automatic mode activated")
-        return
-
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def stop(self, ctx):
         """Stop every boss fights"""
         sabetha.stop()
@@ -134,7 +108,6 @@ class BossCog:
         matthias.stop()
         cairnB.stop()
         dhuumB.stop()
-        automatic_mode.stop()
         await self._leave(ctx)
         await self.bot.say("Boss fights stopped")
         pass
