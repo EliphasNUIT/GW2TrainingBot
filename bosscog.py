@@ -1,14 +1,13 @@
 import discord
 from discord.ext import commands
 from bossfight import BossFight
-import json
 import os.path
 
 sabetha: BossFight = BossFight('sabetha')
 slothasor: BossFight = BossFight('slothasor')
 matthias: BossFight = BossFight('matthias')
-cairnB: BossFight = BossFight('cairn')
-dhuumB: BossFight = BossFight('dhuum')
+cairn: BossFight = BossFight('cairn')
+dhuum: BossFight = BossFight('dhuum')
 
 if not discord.opus.is_loaded():
     # the 'opus' library here is opus.dll on windows
@@ -45,8 +44,15 @@ class BossCog:
             if(x.server == server):
                 return await x.disconnect()
 
-    @commands.command(pass_context=True)
-    async def sab(self, ctx):
+    @commands.group(pass_context=True, aliases=['b'])
+    async def boss(self, ctx):
+        """Boss commands"""
+        if ctx.invoked_subcommand is None:     
+            await self.bot.say("Check <prefix>help boss to see how to use this command")
+        pass
+
+    @boss.command(pass_context=True, name="sabetha", aliases=['sb'])
+    async def boss_sab(self, ctx):
         """Launches Sabetha boss fight"""
         vc = await self._summon(ctx)
         if vc is None:
@@ -56,8 +62,8 @@ class BossCog:
         await self.bot.say("Sabetha started")
         return
 
-    @commands.command(pass_context=True)
-    async def sloth(self, ctx):
+    @boss.command(pass_context=True, name="slothasor", aliases=['sl'])
+    async def boss_sloth(self, ctx):
         """Launches Slothasor boss fight"""
         vc = await self._summon(ctx)
         if vc is None:
@@ -67,8 +73,8 @@ class BossCog:
         await self.bot.say("Slothasor started")
         return
 
-    @commands.command(pass_context=True)
-    async def matt(self, ctx):
+    @boss.command(pass_context=True, name="matthias", aliases=['m'])
+    async def boss_matt(self, ctx):
         """Launches Matthias boss fight"""
         vc = await self._summon(ctx)
         if vc is None:
@@ -78,36 +84,36 @@ class BossCog:
         await self.bot.say("Matthias started")
         return
 
-    @commands.command(pass_context=True)
-    async def cairn(self, ctx):
+    @boss.command(pass_context=True, name="cairn", aliases=['c'])
+    async def boss_cairn(self, ctx):
         """Launches Cairn boss fight"""
         vc = await self._summon(ctx)
         if vc is None:
             await self.bot.say("Can not start boss fight")
             return
-        cairnB.start(self.bot, ctx.message.channel, vc)
+        cairn.start(self.bot, ctx.message.channel, vc)
         await self.bot.say("Cairn started")
         return
 
-    @commands.command(pass_context=True)
-    async def dhuum(self, ctx):
+    @boss.command(pass_context=True, name="dhuum", aliases=['d'])
+    async def boss_dhuum(self, ctx):
         """Launches Dhuum boss fight"""
         vc = await self._summon(ctx)
         if vc is None:
             await self.bot.say("Can not start boss fight")
             return
-        dhuumB.start(self.bot, ctx.message.channel, vc)
+        dhuum.start(self.bot, ctx.message.channel, vc)
         await self.bot.say("Dhuum started")
         return
 
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, hidden=Automod)
     async def stop(self, ctx):
         """Stop every boss fights"""
         sabetha.stop()
         slothasor.stop()
         matthias.stop()
-        cairnB.stop()
-        dhuumB.stop()
+        cairn.stop()
+        dhuum.stop()
         await self._leave(ctx)
         await self.bot.say("Boss fights stopped")
         pass
