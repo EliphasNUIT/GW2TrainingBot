@@ -1,5 +1,3 @@
-import sys
-sys.path.append('./trainingCogs/')
 import json
 import bot
 
