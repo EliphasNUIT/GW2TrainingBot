@@ -2,5 +2,5 @@
     "user_id": "",
     "token": "",
     "prefix": "$",
-    "autocleancache": true
+    "autocleancache": false
 }
