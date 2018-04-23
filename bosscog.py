@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from bossfight import BossFight
-import os.path
+import os
 
 sabetha: BossFight = BossFight('sabetha')
 slothasor: BossFight = BossFight('slothasor')
@@ -19,7 +19,9 @@ if not discord.opus.is_loaded():
 
 
 class BossCog:
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: commands.Bot):   
+        if not os.path.exists('./cache'):
+            os.makedirs('./cache')
         self.bot: commands.Bot = bot
 
     async def _summon(self, ctx):
