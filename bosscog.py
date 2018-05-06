@@ -108,7 +108,7 @@ class BossCog:
         await self.bot.say("Dhuum started")
         return
 
-    @commands.command(pass_context=True, hidden=Automod)
+    @commands.command(pass_context=True)
     async def stop(self, ctx):
         """Stop every boss fights"""
         sabetha.stop()
