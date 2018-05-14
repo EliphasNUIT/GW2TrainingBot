@@ -10,3 +10,7 @@ Put your bot token inside config.json
 Put your user id inside config.json if you want to limit access to load,unload,reload and exit commands
 
 Change the prefix of the bot inside config.json
+
+Add ArcDPS related info in logs.json (example ...\Documents\Guild Wars 2\addons\arcdps\arcdps.cbtlogs)
+
+Add Raidar related info in raidar.json
