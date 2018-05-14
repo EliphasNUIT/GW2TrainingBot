@@ -11,6 +11,7 @@ def doBot():
     @bot.event
     async def on_ready():
         bot.load_extension('bosscog')
+        bot.load_extension('logscog')
         print('Connected!')
         print('Username: ' + bot.user.name)
         print('ID: ' + bot.user.id)
