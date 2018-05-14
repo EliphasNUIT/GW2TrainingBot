@@ -20,7 +20,7 @@
             "name": "Orb",
             "initial_delay": 0,
             "timer": 30,
-            "delay": 5,
+            "delay": 8,
             "speech": [
                 {
                     "name": "fleche.mp3",
@@ -56,7 +56,7 @@
             "name": "Orb player",
             "initial_delay": 0,
             "timer": 30,
-            "delay": 6.5,
+            "delay": 7.5,
             "speech": [
                 {
                     "name": "one.mp3",
@@ -88,7 +88,7 @@
             "name": "Lesser Deathmark",
             "initial_delay": 95,
             "timer": 80,
-            "delay": 5,
+            "delay": 8,
             "speech": [
                 {
                     "name": "mark.mp3",

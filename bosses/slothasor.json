@@ -7,7 +7,7 @@
             "name": "Volatile Poison",
             "initial_delay": 0,
             "timer": 25,
-            "delay": 5,
+            "delay": 2,
             "speech": [
                 {
                     "name": "poison.mp3",
@@ -19,7 +19,7 @@
             "name": "Mushroom",
             "initial_delay": 0,
             "timer": 50,
-            "delay": 2,
+            "delay": 8,
             "speech": [
                 {
                     "name": "champi2.mp3",
