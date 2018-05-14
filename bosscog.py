@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-from bossfight import BossFight
 import os
+from bossfight import BossFight
 
 sabetha: BossFight = BossFight('sabetha')
 slothasor: BossFight = BossFight('slothasor')
@@ -19,7 +19,7 @@ if not discord.opus.is_loaded():
 
 
 class BossCog:
-    def __init__(self, bot: commands.Bot):   
+    def __init__(self, bot: commands.Bot):
         if not os.path.exists('./cache'):
             os.makedirs('./cache')
         self.bot: commands.Bot = bot
@@ -49,7 +49,7 @@ class BossCog:
     @commands.group(pass_context=True, aliases=['b'])
     async def boss(self, ctx):
         """Boss commands"""
-        if ctx.invoked_subcommand is None:     
+        if ctx.invoked_subcommand is None:
             await self.bot.say("Check <prefix>help boss to see how to use this command")
         pass
 
@@ -86,7 +86,7 @@ class BossCog:
         await self.bot.say("Matthias started")
         return
 
-    @boss.command(pass_context=True, name="cairn", aliases=['c'])
+    @boss.command(pass_context=True,  name="cairn", aliases=['c'])
     async def boss_cairn(self, ctx):
         """Launches Cairn boss fight"""
         vc = await self._summon(ctx)
@@ -108,8 +108,8 @@ class BossCog:
         await self.bot.say("Dhuum started")
         return
 
-    @commands.command(pass_context=True)
-    async def stop(self, ctx):
+    @boss.command(pass_context=True, name="stop")
+    async def boss_stop(self, ctx):
         """Stop every boss fights"""
         sabetha.stop()
         slothasor.stop()

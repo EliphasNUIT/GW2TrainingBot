@@ -1,11 +1,9 @@
-import json
+import sys
+sys.path.append('./trainingCogs/')
+from config import config
 import bot
 
-#config file
-config = json.load(open('./config.json'))
-token = config['token']
-
-if not (token is None or token == ""):
-    bot.doBot(token, config['user_id'],config['prefix'],config['autocleancache'])
+if config.has_token():
+    bot.doBot()
 else:
     print('No token given')
